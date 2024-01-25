@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class NutritionController extends Controller
+class FoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class NutritionController extends Controller
      */
     public function index()
     {
-        return view('nutritions.index');
+        return view('foods.index');
     }
 
     /**
