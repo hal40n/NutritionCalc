@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\OrderInfoController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,4 @@ Route::get('/', function () {
 });
 
 Route::resource('foods', FoodController::class);
+Route::get('/order', [OrderInfoController::class, 'index'])->name('order.index');
