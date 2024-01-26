@@ -22,3 +22,5 @@ Route::get('/', function () {
 
 Route::resource('foods', FoodController::class);
 Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+Route::post('/order', [OrderController::class, 'store'])->name('order.store');
