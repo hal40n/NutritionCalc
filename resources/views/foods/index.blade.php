@@ -7,9 +7,13 @@
 @include('layouts.header')
 
 @section('content')
-    <h1 class="text-3xl font-bold underline">
-    	Hello world!
-    </h1>
+    <div>
+        <h1 class="text-3xl">
+        	食材一覧
+        </h1>
+        <p>あなたが今週購入した商品です</p>
+    </div>
+    
 @endsection
 
 @include('layouts.footer')
