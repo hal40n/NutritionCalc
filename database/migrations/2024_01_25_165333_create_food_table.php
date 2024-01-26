@@ -16,21 +16,20 @@ class CreateFoodTable extends Migration
         Schema::create('food', function (Blueprint $table) {
             $table->unsignedBigInteger('food_code')->primary();
             $table->string('food_name');
-            $table->integer('quantity')->nullable(); // 食材の数量
             $table->double('ENERC')->nullable();
             $table->double('ENERC_KCAL')->nullable();
             $table->double('WATER')->nullable();
             $table->double('PROTCAA')->nullable();
-            $table->double('PROT')->nullable();
+            $table->double('PROT0')->nullable();
             $table->double('FATNLEA')->nullable();
             $table->double('CHOLE')->nullable();
-            $table->double('FAT')->nullable();
+            $table->double('FAT0')->nullable();
             $table->double('CHOAVLM')->nullable();
             $table->double('CHOAVL')->nullable();
-            $table->double('CHOAVLDF')->nullable();
-            $table->double('FIB')->nullable();
+            $table->double('CHOAVLDF0')->nullable();
+            $table->double('FIB0')->nullable();
             $table->double('POLYL')->nullable();
-            $table->double('CHOCDF')->nullable();
+            $table->double('CHOCDF0')->nullable();
             $table->double('OA')->nullable();
             $table->double('ASH')->nullable();
             $table->double('NA')->nullable();
