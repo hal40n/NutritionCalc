@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderInfoTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateOrderInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_info', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_name');
             $table->unsignedBigInteger('food_code'); // food_code カラムを外部キーとして使用
@@ -21,7 +21,7 @@ class CreateOrderInfoTable extends Migration
             $table->timestamps();
             
             // 外部キー制約
-            $table->foreign('user_name')->references('id')->on('users_info')->onDelete('cascade');
+            $table->foreign('user_name')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('food_code')->references('food_code')->on('food')->onDelete('cascade');
         });
     }
@@ -33,9 +33,9 @@ class CreateOrderInfoTable extends Migration
      */
     public function down()
     {
-        Schema::table('order_info', function (Blueprint $table) {
+        Schema::table('orders', function (Blueprint $table) {
             $table->dropForeign(['user_name']);
-            $table->dropForeign(['food_name']);
+            $table->dropForeign(['food_code']);
         });
             
             Schema::dropIfExists('order_info');
