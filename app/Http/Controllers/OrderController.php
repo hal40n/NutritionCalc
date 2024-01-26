@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OrderInfo;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class OrderInfoController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class OrderInfoController extends Controller
      */
     public function index()
     {
-        $order = OrderInfo::all();
+        $order = Order::all();
         $data = ['order' => $order];
         return view('order.index', $data);
     }
@@ -43,10 +43,10 @@ class OrderInfoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\OrderInfo  $order
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(OrderInfo $order)
+    public function show(Order $order)
     {
         //
     }
@@ -54,10 +54,10 @@ class OrderInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\OrderInfo  $order
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(OrderInfo $order)
+    public function edit(Order $order)
     {
         //
     }
@@ -66,10 +66,10 @@ class OrderInfoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\OrderInfo  $order
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OrderInfo $order)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -77,10 +77,10 @@ class OrderInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\OrderInfo  $order
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OrderInfo $order)
+    public function destroy(Order $order)
     {
         //
     }
