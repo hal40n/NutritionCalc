@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_name');
             $table->unsignedBigInteger('food_code'); // food_code カラムを外部キーとして使用
+            $table->string('food_name');
             $table->integer('quantity');
             $table->timestamps();
             

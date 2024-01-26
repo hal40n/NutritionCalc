@@ -26,7 +26,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $order = new Order();
+        $data = ['order' => $order];
+        return view('order.create', $order);
     }
 
     /**
@@ -37,7 +39,16 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'food_name' => 'required|max:255',
+            'quantity' => 'required',
+        ]);
+        $order = new Order();
+        $order->food_name = $request->food_name;
+        $order->quantity = $request->quantity;
+        $order->save();
+        
+        return redirect(route('order.create'));
     }
 
     /**
