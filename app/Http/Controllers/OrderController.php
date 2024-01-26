@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Food;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class FoodController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-//         $foods = Food::first();
-//         dd($foods);
-        return view('foods.index');
+        //
     }
 
     /**
@@ -37,19 +35,16 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-//         $food = new Food;
-//         $food->food_name = $request->input('food_name');
-        
-        
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
         //
     }
@@ -57,10 +52,10 @@ class FoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Order $order)
     {
         //
     }
@@ -69,10 +64,10 @@ class FoodController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -80,10 +75,10 @@ class FoodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
         //
     }
