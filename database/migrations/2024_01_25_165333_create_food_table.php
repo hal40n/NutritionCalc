@@ -14,8 +14,7 @@ class CreateFoodTable extends Migration
     public function up()
     {
         Schema::create('food', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('food_code')->unique();
+            $table->unsignedBigInteger('food_code')->primary();
             $table->string('food_name');
             $table->integer('quantity')->nullable(); // 食材の数量
             $table->double('ENERC')->nullable();
