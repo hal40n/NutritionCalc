@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Food;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
@@ -11,8 +12,10 @@ class FoodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+//         $foods = Food::first();
+//         dd($foods);
         return view('foods.index');
     }
 
@@ -34,7 +37,10 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//         $food = new Food;
+//         $food->food_name = $request->input('food_name');
+        
+        
     }
 
     /**

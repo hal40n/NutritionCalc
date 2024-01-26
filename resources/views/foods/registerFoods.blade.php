@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Register')
 @section('keywords', 'Nutrition Calc')
-@section('description', 'This page is Home.')
+@section('description', 'This page is Register page.')
 
 @include('layouts.header')
 
@@ -11,7 +11,7 @@
         <h1 class="text-3xl">
         	食材登録
         </h1>
-        <p class="text-2xl font-bold text-center">あなたが今週購入した食材を教えてください</p>
+        <p>あなたが今週購入した食材を教えてください</p>
         <form action="#" method="POST" class="mt-10">
         	@csrf
         	<div class="flex flex-col items-center">
@@ -22,6 +22,7 @@
         	</div>
         </form>
     </div><!-- container -->
+    
 @endsection
 
 @include('layouts.footer')
