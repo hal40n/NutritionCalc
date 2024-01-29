@@ -14,7 +14,7 @@
        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="font-sans antialiased">
             {{ $slot }}
         </div>
     </body>
