@@ -17,7 +17,7 @@
 			</div>
 		</header>
         <main class="md:grow md:relative">
-			@isset(Auth::user()->name)
+			@auth
                 <div class="md:flex absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     <div class="title-area w-full md:w-1/2 relative">
     					<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -49,7 +49,7 @@
     					<p class="text-[3vw] md:text-xl text-center"><a href="{{ route('register') }}">新規登録</a></p>
     				</div>
                 </div><!-- title-area -->
-    		@endisset
+    		@endauth
         </main>
         <footer class="absolute bottom-0">
 			<div class="max-w-7ml mx-atuo px-4 sm:px-6">
