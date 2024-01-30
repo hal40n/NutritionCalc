@@ -69,7 +69,6 @@ class Food extends Model
         'NACL_EQ',
     ];
     
-    // 不変項目（更新不可の場合）
     protected $guarded = [
         'created_at',
         'updated_at',

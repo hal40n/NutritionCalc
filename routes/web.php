@@ -20,9 +20,9 @@ use App\Http\Controllers\OrderController;
 // });
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
-Route::resource('/food', FoodController::class);
+Route::resource('/foods', FoodController::class);
 Route::post('/foods/selectFood', [FoodController::class, 'searchFoods'])->name('selectFoods');
 Route::resource('/order', OrderController::class);
 
