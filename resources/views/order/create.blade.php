@@ -5,7 +5,7 @@
     <div class="flex items-center justify-center h-screen">
         <div class="max-w-md w-full">
             <p class="text-2xl font-bold text-center text-green-700 mb-8">今週購入した食材を教えてください</p>
-            <form action="{{ route('selectFoods') }}" method="POST" class="md:w-full md:max-w-3xl mx-auto">
+            <form action="{{ route('selectFood') }}" method="POST" class="md:w-full md:max-w-3xl mx-auto">
                 @csrf
                 <div class="flex flex-col items-center">
                     <!-- 入力ユーザー名 -->

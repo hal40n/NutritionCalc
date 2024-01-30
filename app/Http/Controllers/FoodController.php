@@ -17,12 +17,10 @@ class FoodController extends Controller
         $query = Food::query();
         $searchFood = $request->input('searchFood');
         if (!empty($searchFood)) {
-            $query->where('food_name', 'like', "%{$searchFood}");
+            $query->where('food_name', 'like', "%{$searchFood}%");
         }
         
         $foods = (!empty($searchFood)) ? $query->simplePaginate(35) : Food::simplePaginate(35);
-        
-        
         return view('foods.index', ['foods' => $foods, 'searchFood' => $searchFood]);
     }
 

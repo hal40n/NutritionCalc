@@ -22,6 +22,11 @@
                         {{ __('登録') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('foods.index')" :active="request()->routeIs('order.create')">
+                        {{ __('一覧') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

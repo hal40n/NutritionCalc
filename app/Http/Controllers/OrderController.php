@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Food;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -39,17 +41,28 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'food_name' => 'required|max:255',
-            'quantity' => 'required',
-        ]);
-        $order = new Order();
-        $order->name = $request->name;
-        $order->food_name = $request->food_name;
-        $order->quantity = $request->quantity;
-        $order->save();
-        
-        return redirect(route('order.create'));
+        // コードを取得する
+        $foodCode = $request->input('food_code');
+        // 取得したコードを基にクエリを作成する
+        $food = Food::where('food_code', $foodCode)->first();
+            if($food) {
+                
+                $this->validate($request, [
+                    'quantity' => 'required',
+                ]);
+            
+                $order = new Order();
+                $order->user_id = Auth::user()->id;
+                $order->food_code = $foodCode;
+                $order->food_name = $food->food_name;
+                $order->quantity = $request->input('quantity');
+                $order->save();
+                
+                return view('order.store', ['food_name' => $food->food_name]);
+            } else {
+                // $food が見つからなかった場合のエラーハンドリング
+                return view('order.store')->withErrors(['food_code' => '指定された食材は見つかりませんでした。']);
+            }
     }
 
     /**
