@@ -44,6 +44,7 @@ class OrderController extends Controller
             'quantity' => 'required',
         ]);
         $order = new Order();
+        $order->name = $request->name;
         $order->food_name = $request->food_name;
         $order->quantity = $request->quantity;
         $order->save();
