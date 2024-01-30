@@ -12,21 +12,22 @@
 
         <!-- Scripts -->
       <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+      <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
       <script src="/js/app.js" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-amber-50">
+    	<div class="min-h-screen bg-amber-50 flex flex-col">
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-grow overflow-y-auto">
                 {{ $slot }}
             </main>
         </div>
-        <footer class="absolute bottom-0">
+        <footer class="fixed bottom-0 w-full bg-white z-50 border-t border-green-700">
     		<div class="max-w-7ml mx-atuo px-4 sm:px-6">
     			<div class="py-4 text-left">
-    				<p class="text-center text-[4vw] md:text-base">Copyright© Hal40n All rights reserved.</p>
+    				<p class="text-center text-[3vw] md:text-base text-body-color">Copyright© Hal40n All rights reserved.</p>
     			</div>
     		</div>
 		</footer>

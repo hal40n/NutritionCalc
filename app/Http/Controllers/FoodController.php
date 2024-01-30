@@ -87,4 +87,11 @@ class FoodController extends Controller
     {
         //
     }
+    
+    public function searchFoods(Request $request)
+    {
+        $searchValue = $request->input('food_name');
+        $foods = Food::where('food_name', 'like', "%{$searchValue}%")->get();
+        return view('foods.selectFood', ['inputVal' => $searchValue, 'foods' => $foods]);
+    }
 }

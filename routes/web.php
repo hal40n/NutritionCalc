@@ -22,7 +22,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::resource('foods', FoodController::class);
+Route::resource('/food', FoodController::class);
+Route::post('/foods/selectFood', [FoodController::class, 'searchFoods'])->name('selectFoods');
 Route::resource('/order', OrderController::class);
 
 Route::get('/dashboard', function () {
