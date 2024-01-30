@@ -18,7 +18,7 @@
                     </div>
             		<div class="flex between w-1/2">
                         <button type="submit" name="insertExce" class="mt-8 p-4 bg-green-800 text-white w-full max-w-xs hover:bg-green-900 transiton-colors mr-3">検索</button>
-                        <button type="submit" name="calcExce" class="mt-8 p-4 bg-gray-500 text-white w-full max-w-xs hover:bg-green-900 transiton-colors">戻る</button>
+                        <button type="button" onclick="window.location='{{ route('home') }}'"  class="mt-8 p-4 bg-gray-500 text-white w-full max-w-xs hover:bg-green-900 transiton-colors">戻る</button>
             		</div>
                 </div>
             </form>

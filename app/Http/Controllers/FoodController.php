@@ -14,9 +14,16 @@ class FoodController extends Controller
      */
     public function index(Request $request)
     {
-//         $foods = Food::first();
-//         dd($foods);
-        return view('foods.index');
+        $query = Food::query();
+        $searchFood = $request->input('searchFood');
+        if (!empty($searchFood)) {
+            $query->where('food_name', 'like', "%{$searchFood}");
+        }
+        
+        $foods = (!empty($searchFood)) ? $query->simplePaginate(35) : Food::simplePaginate(35);
+        
+        
+        return view('foods.index', ['foods' => $foods, 'searchFood' => $searchFood]);
     }
 
     /**
