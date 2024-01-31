@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Order;
@@ -9,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +16,25 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Order::all();
-        $data = ['order' => $order];
-        return view('order.index', $data);
+        // すべての注文を取得
+        $orders = Order::all();
+
+        // 注文ごとに関連する食材を取得
+        $foods = collect(); // 空のコレクションを作成
+
+        foreach ($orders as $order) {
+            // 注文ごとの食材を取得してコレクションに追加
+            $food = Food::where('food_code', '=', $order->food_code)->first();
+
+            // $foodが見つかった場合のみコレクションに追加
+            if ($food) {
+                $foods->push($food);
+            }
+        }
+
+        return view('order.index', [
+            'foods' => $foods
+        ]);
     }
 
     /**
@@ -29,14 +45,16 @@ class OrderController extends Controller
     public function create()
     {
         $order = new Order();
-        $data = ['order' => $order];
+        $data = [
+            'order' => $order
+        ];
         return view('order.create', $order);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,30 +63,34 @@ class OrderController extends Controller
         $foodCode = $request->input('food_code');
         // 取得したコードを基にクエリを作成する
         $food = Food::where('food_code', $foodCode)->first();
-            if($food) {
-                
-                $this->validate($request, [
-                    'quantity' => 'required',
-                ]);
-            
-                $order = new Order();
-                $order->user_id = Auth::user()->id;
-                $order->food_code = $foodCode;
-                $order->food_name = $food->food_name;
-                $order->quantity = $request->input('quantity');
-                $order->save();
-                
-                return view('order.store', ['food' => $food]);
-            } else {
-                // $food が見つからなかった場合のエラーハンドリング
-                return view('order.store')->withErrors(['food_code' => '指定された食材は見つかりませんでした。']);
-            }
+        if ($food) {
+
+            $this->validate($request, [
+                'quantity' => 'required'
+            ]);
+
+            $order = new Order();
+            $order->user_id = Auth::user()->id;
+            $order->food_code = $foodCode;
+            $order->food_name = $food->food_name;
+            $order->quantity = $request->input('quantity');
+            $order->save();
+
+            return view('order.store', [
+                'food' => $food
+            ]);
+        } else {
+            // $food が見つからなかった場合のエラーハンドリング
+            return view('order.store')->withErrors([
+                'food_code' => '指定された食材は見つかりませんでした。'
+            ]);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
@@ -79,7 +101,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function edit(Order $order)
@@ -90,8 +112,8 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order)
@@ -102,7 +124,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)
