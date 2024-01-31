@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,9 @@ Route::get('/', function () {
 
 Route::resource('/foods', FoodController::class);
 Route::match(['get', 'post'], '/foods/selectFood', [FoodController::class, 'searchFoods'])->name('selectFoods');
+Route::get('/order/calc', [OrderController::class, 'calc'])->name('calc');
 Route::resource('/order', OrderController::class);
+Route::resource('/user', UserController::class);
 
 Route::get('/dashboard', function () {
     return view('home');

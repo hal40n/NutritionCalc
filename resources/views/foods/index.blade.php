@@ -3,7 +3,7 @@
 		食材一覧
 	</x-slot>
 	
-	<section class="container pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] relative z-20 overflow-hidden">
+	<section class="pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] relative z-20 overflow-hidden">
 		<div class="container">
         	<div class="flex flex-wrap -mx-4">
             	<div class="w-full px-4">
