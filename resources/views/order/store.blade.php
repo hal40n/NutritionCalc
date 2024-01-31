@@ -58,7 +58,7 @@
 						</div>
 					</div>
 					<div class="flex between w-1/2 mx-auto my-0">
-                        <button type="button" onclick="window.location='{{ route('foods.index') }}'" class="mt-8 p-4 bg-green-800 text-white w-full max-w-xs hover:bg-green-900 transiton-colors mr-3">一覧</button>
+                        <button type="button" onclick="window.location='{{ route('order.index') }}'" class="mt-8 p-4 bg-green-800 text-white w-full max-w-xs hover:bg-green-900 transiton-colors mr-3">一覧</button>
                         <button type="button" onclick="window.location='{{ route('home') }}'"  class="mt-8 p-4 bg-gray-500 text-white w-full max-w-xs hover:bg-green-900 transiton-colors">戻る</button>
             		</div>
 				</div>
