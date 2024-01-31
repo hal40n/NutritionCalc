@@ -19,27 +19,27 @@
     			 </div>
         	</div>
             <div class="flex flex-col mt-6">
+            	<form action="" method="GET">
+            		<div class="p-4">
+            			<label for="table-search" class="sr-only">Search</label>
+            			<div class="relative mt-1">
+            				<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            					<svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+            						xmlns="http://www.w3.org/2000/svg">
+            						<path fill-rule="evenodd"
+            							d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+            							clip-rule="evenodd"></path>
+            					</svg>
+            				</div>
+            				<div class="flex justfy-between">
+                				<input type="text" name="searchFood" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
+                				<input type="submit" value="検索" class="p-2 bg-green-800 text-white max-w-xs hover:bg-green-900 transiton-colors ml-3 rounded-lg">
+            				</div>
+                    	</div>
+                	</div>
+            	</form>
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                    	<form action="#" method="GET">
-                    		<div class="p-4">
-                    			<label for="table-search" class="sr-only">Search</label>
-                    			<div class="relative mt-1">
-                    				<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    					<svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                    						xmlns="http://www.w3.org/2000/svg">
-                    						<path fill-rule="evenodd"
-                    							d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    							clip-rule="evenodd"></path>
-                    					</svg>
-                    				</div>
-                    				<div class="flex justfy-between">
-    	                				<input type="text" name="searchFood" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
-	                    				<input type="submit" value="検索" class="p-2 bg-green-800 text-white max-w-xs hover:bg-green-900 transiton-colors ml-3 rounded-lg">
-                    				</div>
-                            	</div>
-                        	</div>
-                    	</form>
                         <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg mb-4">
                             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead class="bg-gray-50 dark:bg-gray-800">
