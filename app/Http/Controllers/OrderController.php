@@ -58,7 +58,7 @@ class OrderController extends Controller
                 $order->quantity = $request->input('quantity');
                 $order->save();
                 
-                return view('order.store', ['food_name' => $food->food_name]);
+                return view('order.store', ['food' => $food]);
             } else {
                 // $food が見つからなかった場合のエラーハンドリング
                 return view('order.store')->withErrors(['food_code' => '指定された食材は見つかりませんでした。']);
