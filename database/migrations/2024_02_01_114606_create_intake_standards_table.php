@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class IntakeStandard extends Migration
+class CreateIntakeStandardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class IntakeStandard extends Migration
     public function up()
     {
         Schema::create('intakeStandards', function (Blueprint $table) {
-            $table->id();
+            $table->id(true);
             $table->string('age_category');
             $table->decimal('ENERC_KCAL_MAN_LOW', 5, 1)->nullable();
             $table->decimal('ENERC_KCAL_MAN_NORMAL', 5, 1)->nullable();
@@ -102,6 +102,7 @@ class IntakeStandard extends Migration
             $table->decimal('CR_WOMAN', 5, 1)->nullable();
             $table->decimal('MO_MAN', 5, 1)->nullable();
             $table->decimal('MO_WOMAN', 5, 1)->nullable();
+            $table->timestamps();
         });
     }
     

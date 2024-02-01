@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -8,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Food extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'food';
+
     protected $primaryKey = 'food_code';
+
     protected $fillable = [
         'food_code',
         'food_name',
@@ -66,11 +67,11 @@ class Food extends Model
         'BIOT',
         'VITC',
         'ALC',
-        'NACL_EQ',
+        'NACL_EQ'
     ];
-    
+
     protected $guarded = [
         'created_at',
-        'updated_at',
+        'updated_at'
     ];
 }
