@@ -19,12 +19,12 @@ class CreateIntakeStandardsTable extends Migration
             $table->decimal('ENERC_KCAL_MAN_LOW', 5, 1)->nullable();
             $table->decimal('ENERC_KCAL_MAN_NORMAL', 5, 1)->nullable();
             $table->decimal('ENERC_KCAL_MAN_HIGH', 5, 1)->nullable();
-            $table->decimal('ENERC_KCAL_WOMAN_NOMAL', 5, 1)->nullable();
+            $table->decimal('ENERC_KCAL_WOMAN_LOW', 5, 1)->nullable();
+            $table->decimal('ENERC_KCAL_WOMAN_NORMAL', 5, 1)->nullable();
             $table->decimal('ENERC_KCAL_WOMAN_HIGH', 5, 1)->nullable();
-            $table->decimal('ENERC_KCAL_WOMAN', 5, 1)->nullable();
             $table->decimal('PROT_MAN_LOW_MIN', 5, 1)->nullable();
             $table->decimal('PROT_MAN_LOW_MAX', 5, 1)->nullable();
-            $table->decimal('PROT_MAN_NOMAL_MIN', 5, 1)->nullable();
+            $table->decimal('PROT_MAN_NORMAL_MIN', 5, 1)->nullable();
             $table->decimal('PROT_MAN_NORMAL_MAX', 5, 1)->nullable();
             $table->decimal('PROT_MAN_HIGH_MIN', 5, 1)->nullable();
             $table->decimal('PROT_MAN_HIGH_MAX', 5, 1)->nullable();

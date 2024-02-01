@@ -13,9 +13,9 @@
 						<div class="mb-7">
 							<p class="text-base text-body-color leading-loose mb-1">エネルギー：{{ $food->ENERC_KCAL }}kcal</p>
 							<p class="text-base text-body-color leading-loose mb-1">水分：{{ $food->WATER }}g</p>
-							<p class="text-base text-body-color leading-loose mb-1">タンパク質：{{ $food->PROT0 }}g</p>
-							<p class="text-base text-body-color leading-loose mb-1">脂質：{{ $food->FAT0 }}g</p>
-							<p class="text-base text-body-color leading-loose mb-1">炭水化物：{{ $food->CHOCDF0 }}</p>
+							<p class="text-base text-body-color leading-loose mb-1">タンパク質：{{ $food->PROT }}g</p>
+							<p class="text-base text-body-color leading-loose mb-1">脂質：{{ $food->FAT }}g</p>
+							<p class="text-base text-body-color leading-loose mb-1">炭水化物：{{ $food->CHOCDF }}</p>
 							<p class="text-xl text-green-700 leading-loose mb-1">
 								<a href="">more...</a>
 							</p>

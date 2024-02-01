@@ -91,22 +91,22 @@
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div>
-                                                    <p class="text-gray-500 dark:text-gray-400">{{ $food->PROT0 }}</p>
+                                                    <p class="text-gray-500 dark:text-gray-400">{{ $food->PROT }}</p>
                                                 </div>
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div>
-                                                    <p class="text-gray-500 dark:text-gray-400">{{ $food->FAT0 }}</p>
+                                                    <p class="text-gray-500 dark:text-gray-400">{{ $food->FAT }}</p>
                                                 </div>
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div>
-                                                    <p class="text-gray-500 dark:text-gray-400">{{ $food->FIB0 }}</p>
+                                                    <p class="text-gray-500 dark:text-gray-400">{{ $food->FIB }}</p>
                                                 </div>
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div>
-                                                    <p class="text-gray-500 dark:text-gray-400">{{ $food->CHOCDF0 }}</p>
+                                                    <p class="text-gray-500 dark:text-gray-400">{{ $food->CHOCDF }}</p>
                                                 </div>
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
