@@ -18,22 +18,22 @@
 						<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 w-1/5">不足値</th>
 					</tr>
 				</thead>
-				@foreach($totals as $key => $val)
+				@foreach($intakeStandardProperties as $key => $val)
 				<tr>
 					<th scope="col" class="bg-gray-50 dark:bg-gray-800 px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 w-2/5">{{ $val[0] }}</th>
 					<td class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900 px-4 py-4 text-sm whitespace-nowrap w-1/5">
 						<div>
-							<p class="text-gray-500 dark:text-gray-400">{{ $val[2] }}</p>
+							<p class="text-gray-500 dark:text-gray-400">{{ $userStandardValue[$key] }}</p>
 						</div>
 					</td>
 					<td class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900 px-4 py-4 text-sm whitespace-nowrap w-1/5">
 						<div>
-							<p class="text-gray-500 dark:text-gray-400">{{ $val[2] }}</p>
+							<p class="text-gray-500 dark:text-gray-400">{{ $intakeNutritionsTotal[$key] }}</p>
 						</div>
 					</td>
 					<td class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900 px-4 py-4 text-sm whitespace-nowrap w-1/5">
 						<div>
-							<p class="text-gray-500 dark:text-gray-400">{{ $val[2] }}</p>
+							<p class="text-gray-500 dark:text-gray-400">{{ $userStandardValue[$key] - $intakeNutritionsTotal[$key] }}</p>
 						</div>
 					</td>
 				</tr>
@@ -46,8 +46,10 @@
 				<table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
 					<thead class="bg-gray-50 dark:bg-gray-800">
 						<tr>
-							<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"></th> @foreach($totals as $key => $vals)
-							<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">{{ $vals[0] }}</th> @endforeach
+							<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"></th> 
+							@foreach($intakeNutritionsTotal as $key => $vals)
+								<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">{{ $val[0] }}</th>
+							@endforeach
 						</tr>
 					</thead>
 					<tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
@@ -56,10 +58,10 @@
 								<div>
 									<p class="text-gray-500 dark:text-gray-400">目標値</p>
 								</div>
-							</td> @foreach($totals as $key => $vals)
+							</td> @foreach($intakeNutritionsTotal as $key => $vals)
 							<td class="px-4 py-4 text-sm whitespace-nowrap">
 								<div>
-									<p class="text-gray-500 dark:text-gray-400">{{ $vals[2] }}</p>
+									<p class="text-gray-500 dark:text-gray-400">{{ $userStandardValue[$key] }}</p>
 								</div>
 							</td> @endforeach
 						</tr>
@@ -68,10 +70,10 @@
 								<div>
 									<p class="text-gray-500 dark:text-gray-400">摂取値</p>
 								</div>
-							</td> @foreach($totals as $key => $vals)
+							</td> @foreach($intakeNutritionsTotal as $key => $vals)
 							<td class="px-4 py-4 text-sm whitespace-nowrap">
 								<div>
-									<p class="text-gray-500 dark:text-gray-400">{{ $vals[2] }}</p>
+									<p class="text-gray-500 dark:text-gray-400">{{ $intakeNutritionsTotal[$key] }}</p>
 								</div>
 							</td> @endforeach
 						</tr>
@@ -80,10 +82,10 @@
 								<div>
 									<p class="text-gray-500 dark:text-gray-400">不足値</p>
 								</div>
-							</td> @foreach($totals as $key => $vals)
+							</td> @foreach($intakeNutritionsTotal as $key => $vals)
 							<td class="px-4 py-4 text-sm whitespace-nowrap">
 								<div>
-									<p class="text-gray-500 dark:text-gray-400">{{ $vals[2] }}</p>
+									<p class="text-gray-500 dark:text-gray-400">{{ $userStandardValue[$key] - $intakeNutritionsTotal[$key]  }}</p>
 								</div>
 							</td> @endforeach
 						</tr>
