@@ -54,9 +54,16 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($food_code)
     {
-        //
+
+        // $food_code を使用して該当する食材の情報を取得
+        $food = Food::where('food_code', $food_code)->first();
+        
+        
+        // 取得した情報をビューに渡す
+        return view('foods.detail', ['food' => $food]);
+        
     }
 
     /**

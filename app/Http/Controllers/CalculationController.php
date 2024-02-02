@@ -138,7 +138,7 @@ class CalculationController extends Controller
         $userStandardValue = array();
         foreach ($intakeStandardProperties as $intakeStandardProperty) {
             $intakeValue = $ageValue->pluck($intakeStandardProperty[2])->first();
-            $userStandardValue[$intakeStandardProperty[1]] = $intakeValue;
+            $userStandardValue[$intakeStandardProperty[1]] = floatval($intakeValue);
         }
         // 食事摂取基準ここまで
         
@@ -165,7 +165,7 @@ class CalculationController extends Controller
                 //                 }
                     // $val = uppercase column
                 foreach ($intakeStandardProperties as $intakeStandardProperty) {
-                    $intakeNutritionsTotal[$intakeStandardProperty[1]] += $food[$intakeStandardProperty[1]];
+                    $intakeNutritionsTotal[$intakeStandardProperty[1]] += floatval($food[$intakeStandardProperty[1]]);
                 }
             }
         }
