@@ -33,7 +33,7 @@
 					</td>
 					<td class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900 px-4 py-4 text-sm whitespace-nowrap w-1/5">
 						<div>
-							<p class="text-gray-500 dark:text-gray-400">{{ $userStandardValue[$intakeStandardProperty[1]] - $intakeNutritionsTotal[$intakeStandardProperty[1]] }}</p>
+							<p class="text-gray-500 dark:text-gray-400">{{ $intakeNutritionsTotal[$intakeStandardProperty[1]] - $userStandardValue[$intakeStandardProperty[1]] }}</p>
 						</div>
 					</td>
 				</tr>
@@ -46,9 +46,9 @@
 				<table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
 					<thead class="bg-gray-50 dark:bg-gray-800">
 						<tr>
-							<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"></th> 
+							<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 whitespace-nowrap"></th> 
 							@foreach($intakeStandardProperties as $intakeStandardProperty)
-								<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">{{ $intakeStandardProperty[0] }}</th>
+								<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 whitespace-nowrap">{{ $intakeStandardProperty[0] }}</th>
 							@endforeach
 						</tr>
 					</thead>
@@ -85,7 +85,7 @@
 							</td> @foreach($intakeStandardProperties as $intakeStandardProperty)
 							<td class="px-4 py-4 text-sm whitespace-nowrap">
 								<div>
-									<p class="text-gray-500 dark:text-gray-400">{{ $userStandardValue[$intakeStandardProperty[1]] - $intakeNutritionsTotal[$intakeStandardProperty[1]]  }}</p>
+									<p class="text-gray-500 dark:text-gray-400">{{ $intakeNutritionsTotal[$intakeStandardProperty[1]] - $userStandardValue[$intakeStandardProperty[1]]  }}</p>
 								</div>
 							</td> @endforeach
 						</tr>

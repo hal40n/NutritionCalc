@@ -28,10 +28,10 @@
                     <div class="menu-area md:w-1/2 md:text-center md:relative hidden md:inline-block">
                     	<div class="menu-area_list text-left md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
                     		<ul>
-                    			<li class="mb-4"><a href="{{ route('order.create')}} ">今週買った食材を登録する</a></li>
-                    			<li class="mb-4"><a href="{{ route('order.index')}} ">今週買った食材を見る</a></li>
-                    			<li class="mb-4"><a href="{{ route('calc')}} ">栄養を計算する</a></li>
-                    			<li class="mb-4"><a>食材の詳細を見る</a></li>
+                    			<li class="mb-4"><a href="{{ route('order.create')}}">今週買った食材を登録する</a></li>
+                    			<li class="mb-4"><a href="{{ route('order.index')}}">今週買った食材を見る</a></li>
+                    			<li class="mb-4"><a href="{{ route('calc')}}">栄養を計算する</a></li>
+                    			<li class="mb-4"><a href="{{ route('foods.index')}}">食材の一覧を見る</a></li>
                     			<li>
                     				<form action="{{ route('logout') }}" method="post">
                     				@csrf
