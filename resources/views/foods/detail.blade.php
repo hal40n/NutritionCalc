@@ -308,12 +308,12 @@
 			</table>
 			<div class="flex between w-1/2 mx-auto my-0">
 				<button type="submit" name="addExec"
-					class="w-1/4 block mt-3 mx-auto text-base font-semibold text-white bg-green-700 border border-[#D4DEFF] rounded-md text-center p-4 hover:bg-green-900 hover:border-green-700 transition">
-					<a href="{{ route('foods.index') }}"> 食材一覧に戻る </a>
+					class="w-1/3 block mt-3 mx-auto text-base font-semibold text-white bg-green-700 border border-[#D4DEFF] rounded-md text-center p-4 hover:bg-green-900 hover:border-green-700 transition">
+					<a href="{{ route('foods.index') }}"><span class="block text-[2vw]">食材一覧</span></a>
 				</button>
 				<button type="submit" name="addExec"
-					class="w-1/4 block mt-3 mx-auto text-base font-semibold text-white bg-green-700 border border-[#D4DEFF] rounded-md text-center p-4 hover:bg-green-900 hover:border-green-700 transition">
-					<a href="{{ route('order.index') }}"> 購入食材一覧に戻る </a>
+					class="w-1/3 block mt-3 mx-auto text-base font-semibold text-white bg-gray-500 border border-[#D4DEFF] rounded-md text-center p-4 hover:bg-gray-700 hover:border-gray-500 transition">
+					<a href="{{ route('order.index') }}"><span class="block text-[2vw]">購入食材一覧</span></a>
 				</button>
 			</div>
 		</div>

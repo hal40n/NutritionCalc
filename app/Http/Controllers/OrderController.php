@@ -22,7 +22,7 @@ class OrderController extends Controller
         $orders = Order::all();
 
         // 注文ごとに関連する食材を取得
-        $foods = collect(); // 空のコレクションを作成
+        $orderDetails = collect(); // 空のコレクションを作成
 
         foreach ($orders as $order) {
             // 注文ごとの食材を取得してコレクションに追加
@@ -30,12 +30,16 @@ class OrderController extends Controller
 
             // $foodが見つかった場合のみコレクションに追加
             if ($food) {
-                $foods->push($food);
+                $orderDetails->push([
+                    'food' => $food,
+                    'quantity' => $order->quantity,
+                    'id' => $order->id,
+                ]);
             }
         }
 
         return view('order.index', [
-            'foods' => $foods
+            'orderDetails' => $orderDetails,
         ]);
     }
 
@@ -130,6 +134,12 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        // ビューに受け渡すための食材データを取得する
+        $foodCode = $order->food_code;
+        $food = Food::where('food_code', $foodCode)->first();
+        
+        // 該当のOrderを削除する
+        $order->delete();
+        return view('order.delete', ['food' => $food]);
     }
 }
