@@ -97,7 +97,9 @@ class FoodController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $food = Food::where('food_code', $id)->first();
+        $food->delete();
+        return view('foods.delete', ['food' => $food]);
     }
     
     public function searchFoods(Request $request)

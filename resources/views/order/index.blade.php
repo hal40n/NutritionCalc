@@ -19,6 +19,7 @@
 								<tr>
 									<th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 whitespace-nowrap">No.</th>
 									<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 whitespace-nowrap">食材名</th>
+									<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 whitespace-nowrap">購入数<br>（個）</th>
 									<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 whitespace-nowrap">エネルギー<br>（kcal）
 									</th>
 									<th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400 whitespace-nowrap">水分<br>（g）
@@ -49,91 +50,91 @@
 								</tr>
 							</thead>
 							<tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-								@foreach($foods as $food)
+								@foreach($orderDetails as $key => $orderDetail)
 								<tr>
-									<td class="px-4 py-4 text-sm whitespace-nowrap">
-										<a href="{{ route('foods.show', ['food_code' => $food->food_code]) }}" class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
-												<span class="text-gray-500 dark:text-gray-400">{{ $food->food_code }}</span>
-											</a>
+									<td class="px-4 py-4 text-sm whitespace-nowrap"><a href="{{ route('foods.show', ['food_code' => $orderDetail['food']->food_code]) }}"
+										class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100"> <span class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->food_code }}</span>
+									</a></td>
+									<td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+										<div>
+											<h2 class="font-medium text-gray-800 dark:text-white ">{{ $orderDetail['food']->food_name }}</h2>
+										</div>
 									</td>
 									<td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
 										<div>
-											<h2 class="font-medium text-gray-800 dark:text-white ">{{ $food->food_name }}</h2>
+											<h2 class="font-medium text-gray-800 dark:text-white ">{{ $orderDetail['quantity'] }}</h2>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->ENERC_KCAL }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->ENERC_KCAL }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->WATER }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->WATER }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->PROT }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->PROT }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->FAT }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->FAT }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->FIB }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->FIB }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->CHOCDF }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->CHOCDF }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->NA }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->NA }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->CA }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->CA }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->MG }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->MG }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->VITD }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->VITD }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->THIA }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->THIA }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->RIBF }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->RIBF }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
 										<div>
-											<p class="text-gray-500 dark:text-gray-400">{{ $food->VITC }}</p>
+											<p class="text-gray-500 dark:text-gray-400">{{ $orderDetail['food']->VITC }}</p>
 										</div>
 									</td>
 									<td class="px-4 py-4 text-sm whitespace-nowrap">
-										<button class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
-											<a href="{{ route('foods.show', ['food_code' => $food->food_code]) }}" class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100"> <svg
-													xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-													<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010-1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-												</svg>
-											</a>
-										</button>
+										<form action="{{ route('order.destroy', ['order' => $orderDetail['id']]) }}" method="post">
+											@csrf @method('DELETE')
+											<x-button class="bg-red-600 hover:bg-red-500 active:bg-red-700 focus:border-red-700"> 削除 </x-button>
+										</form>
 									</td>
 								</tr>
 								@endforeach
