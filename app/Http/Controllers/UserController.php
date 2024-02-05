@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
@@ -71,7 +71,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $updatedUser = clone $user;
+        $form = $request->all();
+        unset($form['_token']);
+        $updatedUser->fill($form)->save();
+        return view('user.update', ['originalUser' => $user, 'updatedUser' => $updatedUser]);
     }
 
     /**

@@ -14,16 +14,43 @@ class CalculationController extends Controller
     {
         // ログインユーザーのデータ
         $userData = [
-            'age' => 27,
-            'sex' => 'MAN',
-            'activityLevel' => 'NORMAL',
-            'height' => 182,
-            'weight' => 68
+            'age' => Auth::user()->age,
+            'sex' => Auth::user()->sex,
+            'activeLevel' => Auth::user()->activeLevel,
+            'height' => Auth::user()->height,
+            'weight' => Auth::user()->weight
         ];
+        switch (TRUE) {
+            case $userData['sex'] === '男' && $userData['activeLevel'] === '低い':
+                $userData['sex'] = 'MAN';
+                $userData['activeLevel'] = 'LOW';
+                break;
+            case $userData['sex'] === '男' && $userData['activeLevel'] === '普通':
+                $userData['sex'] = 'MAN';
+                $userData['activeLevel'] = 'NORMAL';
+                break;
+            case $userData['sex'] === '男' && $userData['activeLevel'] === 'HIGH':
+                $userData['sex'] = 'MAN';
+                $userData['activeLevel'] = 'HIGH';
+                break;
+            case $userData['sex'] === '女' && $userData['activeLevel'] === '低い':
+                $userData['sex'] = 'WOMAN';
+                $userData['activeLevel'] = 'LOW';
+                break;
+            case $userData['sex'] === '女' && $userData['activeLevel'] === '普通':
+                $userData['sex'] = 'WOMAN';
+                $userData['activeLevel'] = 'NORMAL';
+                break;
+            case $userData['sex'] === '女' && $userData['activeLevel'] === 'HIGH':
+                $userData['sex'] = 'WOMAN';
+                $userData['activeLevel'] = 'HIGH';
+                break;
+        }
+       
         
         $intakeStandardProperties = [
-            ['エネルギー', 'ENERC_KCAL', 'ENERC_KCAL_' . $userData['sex'] . '_' . $userData['activityLevel']],
-            ['タンパク質', 'PROT', 'PROT_' . $userData['sex'] . '_' . $userData['activityLevel'] . '_MIN'],
+            ['エネルギー', 'ENERC_KCAL', 'ENERC_KCAL_' . $userData['sex'] . '_' . $userData['activeLevel']],
+            ['タンパク質', 'PROT', 'PROT_' . $userData['sex'] . '_' . $userData['activeLevel'] . '_MIN'],
             ['脂質', 'FAT', 'FAT_' . $userData['sex'] . '_MIN'],
             ['飽和脂肪酸', 'SFA', 'SFA_' . $userData['sex'] . '_MIN'],
             ['n-6系脂肪酸', 'N6PUFA', 'N6PUFA_' . $userData['sex']],

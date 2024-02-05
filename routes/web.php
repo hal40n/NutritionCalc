@@ -28,7 +28,8 @@ Route::resource('/foods', FoodController::class);
 Route::match(['get', 'post'], '/foods/selectFood', [FoodController::class, 'searchFoods'])->name('selectFoods');
 Route::get('/foods/detail/{food_code}', [FoodController::class, 'show'])->name('foods.show');
 Route::resource('/order', OrderController::class);
-Route::resource('/user', UserController::class);
+Route::resource('/user', UserController::class)->except(['update']);
+Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 Route::get('/calculate', [CalculationController::class, 'calc'])->name('calc');
 
 Route::get('/dashboard', function () {
