@@ -303,7 +303,6 @@
 								<p class="text-gray-500 dark:text-gray-400">{{ $food->NACL_EQ }}</p>
 							</div></td>
 					</tr>
-
 				</tbody>
 			</table>
 			<div class="flex between w-1/2 mx-auto my-0">
