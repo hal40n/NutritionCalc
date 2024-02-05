@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* Not Responsive */
+body {
+  background-color: rgb(21 128 61);
+  color: #637381;
+}
+
+.checked-label {
+    color: white;
+}
+
+
+.tabAnim {
+  z-index: -9;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#default:checked ~ div {
+  --tw-translate-x: 0%;
+}
+
+#energy:checked ~ div {
+  --tw-translate-x: 100%;
+}
+
+#protain:checked ~ div {
+  --tw-translate-x: 200%;
+}
+
+#vitamin:checked ~ div {
+  --tw-translate-x: 300%;
+}
+
+#all:checked ~ div {
+  --tw-translate-x: 400%;
+}

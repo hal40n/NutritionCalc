@@ -7,7 +7,7 @@
 <meta name="keywords" itemprop="keywords" content="home">
 <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <script src="{{ mix('js/app.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body class="md:flex md:flex-col w-full min-h-[100vh] sm:relative bg-amber-50 text-green-700">
 	<header class="fixed top-0" id="header">
