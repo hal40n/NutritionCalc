@@ -36,6 +36,7 @@
 						<li class="mb-4"><a href="{{ route('order.index')}}">今週買った食材を見る</a></li>
 						<li class="mb-4"><a href="{{ route('calc')}}">栄養を計算する</a></li>
 						<li class="mb-4"><a href="{{ route('foods.index')}}">食材の一覧を見る</a></li>
+						<li class="mb-4"><a href="{{ route('user.show', ['user' => Auth::user()]) }}">登録情報を変更する</a></li>
 						<li>
 							<form action="{{ route('logout') }}" method="post">
 								@csrf
