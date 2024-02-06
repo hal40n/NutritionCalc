@@ -24,18 +24,34 @@ input[type="radio"] {
   --tw-translate-x: 0%;
 }
 
-#energy:checked ~ div {
+#mineral:checked ~ div {
   --tw-translate-x: 100%;
 }
 
-#protain:checked ~ div {
+#vitamin:checked ~ div {
   --tw-translate-x: 200%;
 }
 
-#vitamin:checked ~ div {
+#all:checked ~ div {
   --tw-translate-x: 300%;
 }
 
-#all:checked ~ div {
-  --tw-translate-x: 400%;
+/* メディアクエリ */
+@media (max-width: 768px) {
+  #default:checked ~ div {
+    /* 画面幅が768px以下の場合のスタイル */
+    --tw-translate-x: 0%;
+  }
+
+  #mineral:checked ~ div {
+    --tw-translate-x: 105%;
+  }
+
+  #vitamin:checked ~ div {
+    --tw-translate-x: 205%;
+  }
+
+  #all:checked ~ div {
+    --tw-translate-x: 300%;
+  }
 }
