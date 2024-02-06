@@ -1,3 +1,14 @@
+@php
+  $tableVisibility = [
+    'default' => 'block',
+    'mineral' => 'none',
+    'vitamin' => 'none',
+    'all' => 'none',
+  ];
+  $initialChecked = old('btn', 'default'); // 初期表示のラジオボタン
+  $selectedOption = old('btn', $selectedOption); // 選択されたオプション
+@endphp
+
 <x-app-layout> <x-slot name='title'> 栄養価計算 </x-slot>
 
 <section class="pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] relative z-20 overflow-hidden">
@@ -8,18 +19,19 @@
 		</div>
 
 		<div class="max-w-screen-xl mx-auto p-8 pb-0 flex flex-col items-center">
-			<form action="" method="GET">
+			<form action="{{ route('calcRequest') }}" method="POST" class="w-full">
 				@csrf
-				<div class="flex w-full relative justfy-between">
-					<input type="radio" id="default" name="btn" value="default" class="appearance-none" /> <label for="default"
-						class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2">デフォルト</label> <input type="radio" id="energy" name="btn" value="energy"
-						class="appearance-none" /> <label for="energy" class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2">エネルギー群</label> <input
-						type="radio" id="protain" name="btn" value="protain" class="appearance-none" /> <label for="protain"
-						class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2">タンパク質群</label> <input type="radio" id="vitamin" name="btn"
-						value="vitamin" class="appearance-none" /> <label for="vitamin" class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2">ビタミン群</label>
-					<input type="radio" id="all" name="btn" value="all" class="appearance-none" /> <label for="all"
-						class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2">全表示</label>
-					<div class="w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full p-0 h-full bg-green-700 absolute transform transition-transform tabAnim"></div>
+				<div class="flex w-full relative justify-around">
+					 <input type="radio" id="default" name="btn" value="default" class="appearance-none" {{ $selectedOption == 'default' ? 'checked' : '' }} />
+					 <label for="default" class="checked-label cursor-pointer md:w-1/6 flex grow items-center justify-center truncate select-none font-semibold md:text-lg rounded-full py-2 {{ old('btn') == 'default' ? 'checked-label' : '' }}">三大栄養</label>
+					 <input type="radio" id="mineral" name="btn" value="mineral" class="appearance-none" {{ $selectedOption == 'mineral' ? 'checked' : '' }} />
+					 <label for="mineral" class="cursor-pointer md:w-1/6 flex grow items-center justify-center truncate select-none font-semibold md:text-lg rounded-full py-2 {{ old('btn') == 'mineral' ? 'checked-label' : '' }}">ミネラル</label>
+					<input type="radio" id="vitamin" name="btn" value="vitamin" class="appearance-none" {{ $selectedOption == 'vitamin' ? 'checked' : '' }} />
+					<label for="vitamin" class="cursor-pointer md:w-1/6 flex grow items-center justify-center truncate select-none font-semibold md:text-lg rounded-full py-2  {{ old('btn') == 'vitamin' ? 'checked-label' : '' }}">ビタミン</label>
+					<input type="radio" id="all" name="btn" value="all" class="appearance-none" {{ $selectedOption == 'all' ? 'checked' : '' }} />
+					<label for="all" class="cursor-pointer md:w-1/6 flex grow items-center justify-center truncate select-none font-semibold md:text-lg rounded-full py-2 {{ old('btn') == 'all' ? 'checked-label' : '' }}">全表示</label>
+					<input type="submit" name="additionalInput" id="additionalInput" value="success" class="hidden" />
+					<div class="w-1/4 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full p-0 h-full bg-green-700 absolute transform transition-transform tabAnim"></div>
 				</div>
 			</form>
 		</div>
@@ -112,23 +124,60 @@
 		</div>
 
 		<p class="mt-4 text-base text-body-color leading-loose text-right　w-[1vw]">食品成分値は日本食品標準成分表2020年版（八訂）のデータを使用しています。</p>
-	</div>
-
+	</div> 
 	<script>
-	 document.querySelectorAll('input[type="radio"]').forEach(radio => {
-	        radio.addEventListener('change', function() {
-	            // Remove the 'checked-label' class from all labels
-	            document.querySelectorAll('label').forEach(label => {
+	document.addEventListener('DOMContentLoaded', function () {
+	    // ページ読み込み時に選択されたラジオボタンに.checked-labelクラスを付与
+	    const tableVisibility = @json($tableVisibility);
+	    const initialCheckedValue = @json($initialChecked);
+	    const selectedOptionValue = @json($selectedOption);
+
+	    const initialChecked = document.querySelector(`input[name="btn"][value="${initialCheckedValue}"]`);
+	    const selectChecked = document.querySelector(`input[name="btn"][value="${selectedOptionValue}"]`);
+
+	    // すべてのラベルから.checked-labelクラスを一旦削除
+	    document.querySelectorAll('.checked-label').forEach(function (label) {
+	        label.classList.remove('checked-label');
+	    });
+
+	    if (selectChecked) {
+	        const label = document.querySelector(`label[for="${selectChecked.id}"]`);
+	        if (label) {
+	            label.classList.add('checked-label');
+	        }
+	    } else if (initialChecked) {
+	        const label = document.querySelector(`label[for="${initialChecked.id}"]`);
+	        if (label) {
+	            label.classList.add('checked-label');
+	        }
+	    }
+
+	    // ラジオボタンが変更されたときに.checked-labelクラスを更新
+	    const radioButtons = document.querySelectorAll('input[name="btn"]');
+	    radioButtons.forEach(function (radioButton) {
+	        radioButton.addEventListener('change', function () {
+	            // すべてのラベルから.checked-labelクラスを一旦削除
+	            document.querySelectorAll('.checked-label').forEach(function (label) {
 	                label.classList.remove('checked-label');
 	            });
 
-	            // Add the 'checked-label' class to the label associated with the checked radio button
-	            const checkedLabel = document.querySelector(`label[for="${this.id}"]`);
-	            if (checkedLabel) {
-	                checkedLabel.classList.add('checked-label');
+	            // 選択されたラジオボタンに対応するラベルに.checked-labelクラスを追加
+	            const label = document.querySelector(`label[for="${this.id}"]`);
+	            if (label) {
+	                label.classList.add('checked-label');
 	            }
 	        });
 	    });
-    </script>
+
+	    // 新たなラジオボタンが選択されたときにJavaScriptで追加したinputタグをクリック
+	    document.querySelectorAll('input[name="btn"]').forEach(function (radio) {
+	        radio.addEventListener('change', function () {
+	            document.getElementById('additionalInput').click();
+	        });
+	    });
+	});
+
+		
+	</script>
 </section>
 </x-app-layout>

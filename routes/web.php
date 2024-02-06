@@ -31,6 +31,8 @@ Route::resource('/order', OrderController::class);
 Route::resource('/user', UserController::class)->except(['update']);
 Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 Route::get('/calculate', [CalculationController::class, 'calc'])->name('calc');
+Route::post('/calculate', [CalculationController::class, 'calcRequest'])->name('calcRequest');
+
 
 Route::get('/dashboard', function () {
     return view('home');
