@@ -5,7 +5,7 @@
 		<div class="flex flex-wrap -mx-4">
 			<div class="w-full px-4">
 				<div class="text-center mx-auto max-w-[510px]">
-					<p class="font-semibold text-lg text-body-color block">{{ Auth::user()->name }}さんの情報を下記のように更新しました。</p>
+					<p class="font-semibold text-lg block">{{ Auth::user()->name }}さんの情報を下記のように更新しました。</p>
 				</div>
 			</div>
 		</div>
@@ -102,9 +102,9 @@
 				</tbody>
 			</table>
 			<div class="flex between w-1/3 mx-auto my-0">
-				<button
+				<button type="button" onclick="window.location='{{ route('home') }}'"
 					class="w-1/3 block mt-3 mx-auto text-base font-semibold text-white bg-gray-500 border border-[#D4DEFF] rounded-md text-center p-4 hover:bg-gray-700 hover:border-gray-500 transition">
-					<a href="{{ route('home') }}"><span class="block text-[2vw]">戻る</span></a>
+					<span class="block text-[2vw]">戻る</span>
 				</button>
 			</div>
 		</div>

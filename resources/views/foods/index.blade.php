@@ -6,11 +6,11 @@
 			<div class="w-full px-4">
 				<div class="text-center mx-auto max-w-[510px]">
 					@isset($seachFood)
-					<h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] text-green-700 mb-4">{{ $searchFood }}の検索結果一覧</h2>
+					<h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] mb-4">{{ $searchFood }}の検索結果一覧</h2>
 					<p class="font-semibold text-lg text-body-color block">検索結果は以下の通りです。</p>
 					@else
-					<h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] text-green-700 mb-4">食材一覧</h2>
-					<p class="font-semibold text-lg text-body-color block">現在データベースに登録されている食材の一覧です。</p>
+					<h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] mb-4">食材一覧</h2>
+					<p class="font-semibold text-lg block">現在データベースに登録されている食材の一覧です。</p>
 					@endisset
 				</div>
 			</div>
@@ -27,8 +27,8 @@
 						</div>
 						<div class="flex justfy-between">
 							<input type="text" name="searchFood"
-								class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-								placeholder="Search for items"> <input type="submit" value="検索" class="p-2 bg-green-800 text-white max-w-xs hover:bg-green-900 transiton-colors ml-3 rounded-lg">
+								class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-700"
+								placeholder="Search for items"> <input type="submit" value="検索" class="p-2 bg-gray-500 text-white max-w-xs hover:bg-gray-700 transiton-colors ml-3 rounded-lg">
 						</div>
 					</div>
 				</div>
@@ -162,9 +162,9 @@
 						</table>
 					</div>
 					{{ $foods->links() }}
-					<p class="text-base text-body-color leading-loose text-right">食品成分値は日本食品標準成分表2020年版（八訂）のデータを使用しています。</p>
 				</div>
 			</div>
+					<p class="text-base mt-3 leading-loose text-right">食品成分値は日本食品標準成分表2020年版（八訂）のデータを使用しています。</p>
 		</div>
 	</div>
 </section>

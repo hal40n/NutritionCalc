@@ -36,6 +36,13 @@ input[type="radio"] {
   --tw-translate-x: 300%;
 }
 
+/* アニメーション　*/
+.hb-scale:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+	transition: transform 0.1s ease;
+}
+
 /* メディアクエリ */
 @media (max-width: 768px) {
   #default:checked ~ div {

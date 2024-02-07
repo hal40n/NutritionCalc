@@ -13,7 +13,7 @@
         <!-- Scripts -->
        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
-    <body>
+    <body class="bg-[url('/images/pizza-2589577_1280.jpg')]">
         <div class="font-sans antialiased">
             {{ $slot }}
         </div>
