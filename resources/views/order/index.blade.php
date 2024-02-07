@@ -5,8 +5,8 @@
 		<div class="flex flex-wrap -mx-4">
 			<div class="w-full px-4">
 				<div class="text-center mx-auto max-w-[510px]">
-					<h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] text-green-700 mb-4">購入食材一覧</h2>
-					<p class="font-semibold text-lg text-body-color block">今週買った食材は以下の通りです。</p>
+					<h2 class="text-3xl sm:text-4xl md:text-[40px] mb-4">購入食材一覧</h2>
+					<p class="text-lg block">今週買った食材は以下の通りです。</p>
 				</div>
 			</div>
 		</div>
@@ -141,9 +141,9 @@
 							</tbody>
 						</table>
 					</div>
-					<p class="text-base text-body-color leading-loose text-right">食品成分値は日本食品標準成分表2020年版（八訂）のデータを使用しています。</p>
 				</div>
 			</div>
+					<p class="leading-loose text-right mt-3">食品成分値は日本食品標準成分表2020年版（八訂）のデータを使用しています。</p>
 		</div>
 	</div>
 </section>

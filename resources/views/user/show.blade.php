@@ -5,8 +5,8 @@
 		<div class="flex flex-wrap -mx-4">
 			<div class="w-full px-4">
 				<div class="text-center mx-auto max-w-[510px]">
-					<h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] text-green-700 mb-4">ユーザー詳細</h2>
-					<p class="font-semibold text-lg text-body-color block">現在登録されている{{ Auth::user()->name }}さんの情報です。</p>
+					<h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] mb-4">ユーザー詳細</h2>
+					<p class="font-semibold text-lg block">現在登録されている{{ Auth::user()->name }}さんの情報です。</p>
 				</div>
 			</div>
 		</div>
@@ -75,11 +75,11 @@
 			</table>
 			<div class="flex between w-1/2 mx-auto my-0">
 				<button type="submit" name="addExec"
-					class="w-1/3 block mt-3 mx-auto text-base font-semibold text-white bg-green-700 border border-[#D4DEFF] rounded-md text-center p-4 hover:bg-green-900 hover:border-green-700 transition">
+					class="w-1/3 block mt-3 mx-auto text-base font-semibold text-white bg-gray-500 border border-[#D4DEFF] rounded-md text-center p-4 hover:bg-gray-900 hover:border-gray-700 transition">
 					<a href="{{ route('user.edit', ['user' => Auth::user()]) }}"><span class="block text-[2vw]">編集する</span></a>
 				</button>
-				<button type="submit" name="addExec"
-					class="w-1/3 block mt-3 mx-auto text-base font-semibold text-white bg-gray-500 border border-[#D4DEFF] rounded-md text-center p-4 hover:bg-gray-700 hover:border-gray-500 transition">
+				<button type="submit"
+					class="w-1/3 block mt-3 mx-auto text-base font-semibold text-gray-500 bg-white border border-[#D4DEFF] rounded-md text-center p-4">
 					<a href="{{ route('home') }}"><span class="block text-[2vw]">戻る</span></a>
 				</button>
 			</div>

@@ -1,6 +1,6 @@
 @extends('layouts.app') @section('title', 'Register') @section('keywords', 'Nutrition Calc') @section('description', 'This page is Register page.') @include('layouts.header') @section('content')
 <x-app-layout> <x-slot name='title'>購入食材登録</x-slot>
-<section class="bg-amber-50 pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] relative z-20 overflow-hidden">
+<section class="pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] relative z-20 overflow-hidden">
 	<div class="container">
 		<h1 class="text-3xl">食材登録</h1>
 		<p>あなたが今週購入した食材を教えてください</p>
